@@ -1,0 +1,15 @@
+.text-field {
+    position: relative;
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+
+.text-field::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }

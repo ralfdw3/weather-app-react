@@ -1,0 +1,29 @@
+.forecast-container{
+    display: flex;
+    top: 300px;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding: 10px;
+}
+
+.date {
+    margin-left: 30%;
+}
+
+.sun-with-cloud-image {
+    margin-left: 80px;
+}
+
+.forecast {
+    opacity: 0.6;
+    margin-left: 10px;
+}
+
+.min-temperature {
+    margin-left: 70px;
+}
+
+.max-temperature {
+    margin-left: 80px;
+}
