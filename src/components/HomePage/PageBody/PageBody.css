@@ -1,0 +1,98 @@
+.body-container {
+  width: 90vw;
+  margin: 0 auto 0 auto;
+}
+
+.today {
+  bottom: 3vh;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.weather-today {
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  height: 20vh;
+  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+  border-radius: 15px;
+}
+
+.small-icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 35em;
+  margin-top: 1vw;
+  margin-left: 25vw;
+}
+
+.small-icons img {
+  width: 4vw;
+  min-width: 50px;
+  margin-top: -2vh;
+  margin-bottom: 1vh;
+  height: auto;
+}
+
+.cloud-image {
+  width: 9vw;
+  height: auto;
+  min-width: 100px;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+
+.today-temperature {
+  margin-left: 3vw;
+}
+
+.todays-max-temperature {
+  font-size: 48px;
+}
+
+.max-degree {
+  font-size: 24px;
+  bottom: 3vh;
+}
+
+.separation-between-temperature {
+  font-size: 32px;
+  top: 12px;
+}
+
+.todays-min-temperature {
+  font-size: 24px;
+  top: 2vh;
+  margin-left: 12px;
+}
+
+.min-degree {
+  font-size: 18px;
+  left: 4px;
+  top: 1vh;
+}
+
+.umbrella-container,
+.drop-container,
+.air-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.umbrella-container span,
+.drop-container span,
+.air-container span {
+  margin: 0.5vh;
+}
+
+.percentage {
+  font-size: 20px;
+}
+
+.climate-data {
+  font-size: 16px;
+}

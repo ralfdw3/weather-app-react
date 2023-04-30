@@ -1,0 +1,29 @@
+.foot-container {
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 90vh;
+  bottom: 0;
+  margin: auto;
+  height: 7vh;
+  width: 95vw;
+  min-height: 50px;
+  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+  border-radius: 15px;
+}
+
+.footer-info {
+  display: flex;
+  margin: auto;
+}
+
+.foot-container span {
+  margin: auto;
+}
+
+.foot-container img {
+  margin-left: 8px;
+  width: 32px;
+  height: 32px;
+}
