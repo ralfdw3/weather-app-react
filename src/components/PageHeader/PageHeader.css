@@ -9,22 +9,19 @@
   border-radius: 15px;
 }
 
-.page-header-container Button {
-  position: relative;
+.button {
   left: 24px;
-  padding: 1vw;
+  padding: 0.8vw;
   font-weight: 600;
   font-size: 24px;
   line-height: 38%;
-  background-color: unset;
-  border: 0;
 }
 
-button::after {
+.button::after {
   content: '';
   display: block;
   position: absolute;
-  bottom: 0.5vh;
+  bottom: 0.2vh;
   left: 0;
   width: 100%;
   height: 2px;
@@ -32,6 +29,6 @@ button::after {
   visibility: hidden;
 }
 
-button:hover::after {
+.button:hover::after {
   visibility: visible;
 }
