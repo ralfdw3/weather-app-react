@@ -1,0 +1,49 @@
+.body-container {
+  width: 90vw;
+  margin: 0 auto 0 auto;
+}
+
+.today {
+  bottom: 3vh;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.weather-today {
+  width: 90vw;
+  height: 20vh;
+  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+  border-radius: 15px;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+}
+
+.small-icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 60vh;
+  margin-left: 30vw;
+}
+
+.cloud-image {
+  width: 9vw;
+  height: auto;
+  min-width: 100px;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+
+.umbrella-image,
+.drop-image,
+.air-image {
+  width: 4vw;
+  min-width: 50px;
+  margin-top: -2vh;
+  height: auto;
+}

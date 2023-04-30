@@ -1,25 +1,29 @@
-import Header from '../../components/Header';
-import Body from '../../components/Body';
-import Forecast from '../../components/Forecast';
-import MakeWithLove from '../../components/MakeWithLove';
+import './Home.css'
+import PageHeader from '../../components/PageHeader';
+import PageBody from '../../components/HomePage/PageBody';
+import Search from '../../components/HomePage/Search';
+import Forecast from '../../components/HomePage/Forecast';
+import PageFooter from '../../components/PageFooter';
 
-function Home() {
+const Home = () => {
 
   return (
-    <body className='container'>
-      <div className='header'>
-        <Header />
-      </div>
-      <div className='body'>
-        <Body />
-      </div>
-      <div className='forecast'>
+    <div className='home-container'>
+
+      <header>
+        <PageHeader />
+      </header>
+
+      <body>
+        <Search />
+        <PageBody />
         <Forecast />
-      </div>
-      <div className='footer'>
-        <MakeWithLove />
-      </div>
-    </body>
+      </body>
+
+      <footer>
+        <PageFooter />
+      </footer>
+    </div>
   );
 }
 
