@@ -13,6 +13,17 @@
   border-radius: 15px;
 }
 
+.footer-info {
+  display: flex;
+  margin: auto;
+}
+
 .foot-container span {
   margin: auto;
+}
+
+.foot-container img {
+  margin-left: 8px;
+  width: 32px;
+  height: 32px;
 }

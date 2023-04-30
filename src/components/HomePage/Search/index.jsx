@@ -1,3 +1,4 @@
+import { GoLocation } from 'react-icons/go'
 import './Search.css'
 import InputWithIcon from '../../InputWithIcon'
 
@@ -11,8 +12,7 @@ const Search = () => {
                     <InputWithIcon />
                     <div className='circle'>
                         <div>
-                            <img src="src/images/location.png" alt="localizacao" className='location-image'/>
-                            <img src="src/images/point.png" className='point-image'/>
+                            <GoLocation className='location-icon'/>
                         </div>
                     </div>
                 </div>
