@@ -1,0 +1,7 @@
+.list-container {
+    padding: 2vh;
+    background: linear-gradient(180deg, #352163 0%, #331972 57.81%, #33143C 100%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

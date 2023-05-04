@@ -1,4 +1,4 @@
-import InputWithTitleAbove from '../InputWithTitleAbove'
+import InputWithTitleAbove from '../../InputWithTitleAbove'
 import TitleAndOptions from '../TitleAndOptions'
 import Button from '../../Button'
 import './RegisterPageBody.css'
@@ -22,21 +22,21 @@ const RegisterPage = () => {
                 </div>
                 <div className='maxtemperature-and-precipitation'>
                     <div className='max-temperature-input'>
-                        <InputWithTitleAbove title='Temperatura Máxima' width='54px' />
+                        <InputWithTitleAbove title='Temperatura Máxima' width='64px' />
                     </div>
                     <div className='precipitation-input'>
-                        <InputWithTitleAbove title='Precipitação' width='54px' />
+                        <InputWithTitleAbove title='Precipitação' width='64px' />
                     </div>
                 </div>
                 <div className='humidity-input'>
-                    <InputWithTitleAbove title='Umidade' width='54px' />
+                    <InputWithTitleAbove title='Umidade' width='64px' />
                 </div>
                 <div className='mintemperature-and-airspeed'>
                     <div className='min-temperature-input'>
-                        <InputWithTitleAbove title='Temperatura Mínima' width='54px' />
+                        <InputWithTitleAbove title='Temperatura Mínima' width='64px' />
                     </div>
                     <div className='air-speed-input'>
-                        <InputWithTitleAbove title='Velocidade do vento' width='54px' />
+                        <InputWithTitleAbove title='Velocidade do vento' width='64px' />
                     </div>
                 </div>
             </div>

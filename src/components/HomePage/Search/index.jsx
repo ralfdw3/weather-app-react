@@ -9,7 +9,7 @@ const Search = () => {
             <div className='search-content'>
                 <span>Pesquise a cidade</span>
                 <div className='second-row'>
-                    <InputWithIcon />
+                    <InputWithIcon width={'30vw'}/>
                     <div className='circle'>
                         <div>
                             <GoLocation className='location-icon'/>

@@ -38,7 +38,7 @@
     justify-content: space-between;
     height: 30vh;
     left: 16vw;
-    padding: 2vw;
+    padding: 2vw 2vw 1vw 2vw;
   }
 
   .humidity-input {
@@ -47,7 +47,7 @@
     justify-content: flex-end;
     height: 30vh;
     left: 12vw;
-    padding: 2vw;
+    padding: 1vw 2vw 1vw 2vw;
   }
 
   .mintemperature-and-airspeed {
@@ -55,8 +55,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: 30vh;
-    left: 12vw;
-    padding: 2vw;
+    left: 13vw;
+    padding: 2vw 2vw 1vw 2vw;
   }
 
   .forecast-selector,
