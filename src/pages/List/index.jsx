@@ -1,19 +1,17 @@
-import './Register.css'
+import './List.css'
 import PageHeader from '../../components/PageHeader';
 import PageFooter from '../../components/PageFooter';
-import RegisterPage from '../../components/RegisterPage/RegisterPageBody';
 
-const Register = () => {
+const List = () => {
 
   return (
-    <div className='register-container'>
+    <div className='list-container'>
 
       <header>
         <PageHeader />
       </header>
 
       <body>
-        <RegisterPage />
       </body>
 
       <footer>
@@ -23,4 +21,4 @@ const Register = () => {
   );
 }
 
-export default Register
+export default List

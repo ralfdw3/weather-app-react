@@ -1,0 +1,78 @@
+.register-page-container {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    margin: 6vh auto 0 auto;
+}
+
+.register-page-container h1 {
+    font-size: 32px;
+    width: fit-content;
+}
+
+.city-and-date {
+    display: flex;
+    margin-top: 36px;
+}
+
+.register-date {
+    left: 25vw;
+}
+
+.register-info-container {
+    display: flex;
+    align-items: center;
+    padding-left: 6vw;
+    padding-right: 2vw;
+    margin-top: 4vh;
+    margin-bottom: 6vh;
+    width: 90vw;
+    height: 30vh;
+    background: linear-gradient(180deg, rgba(149, 125, 205, 0.29) 0%, #523D7F 100%);
+    border-radius: 15px;
+  }
+
+  .maxtemperature-and-precipitation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30vh;
+    left: 16vw;
+    padding: 2vw;
+  }
+
+  .humidity-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 30vh;
+    left: 12vw;
+    padding: 2vw;
+  }
+
+  .mintemperature-and-airspeed {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30vh;
+    left: 12vw;
+    padding: 2vw;
+  }
+
+  .forecast-selector,
+  .shift-selector {
+    padding: 2vw;
+    height: 30vh;
+  }
+
+  .register-page-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 90vw;
+  }
+
+
+
+  
