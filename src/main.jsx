@@ -7,6 +7,6 @@ import './styles/global.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <List />
+    <Home />
   </React.StrictMode>,
 )

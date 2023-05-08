@@ -10,6 +10,17 @@
     width: fit-content;
 }
 
+.list-page-input-and-magnifying-glass {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    align-items: center;
+}
+
+.list-magnifying-glass {
+    margin: 6px 0 0 12px;
+}
+
 .list-page-search-city {
     margin-top: 36px;
 }

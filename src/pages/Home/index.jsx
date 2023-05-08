@@ -9,7 +9,6 @@ const Home = () => {
 
   return (
     <div className='home-container'>
-
       <header>
         <PageHeader />
       </header>

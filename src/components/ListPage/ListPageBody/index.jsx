@@ -7,9 +7,9 @@ const ListPageBody = () => {
             <h1>Cadastro Metereológico</h1>
             <div className='list-page-search-city'>
                 <span>Cidade</span>
-                <div>
+                <div className='list-page-input-and-magnifying-glass'>
                     <input type='text' />
-                    <img src="src/images/magnifying-glass.png" alt="lupa" className='magnifying-glass' />
+                    <img src="src/images/magnifying-glass.png" alt="lupa" className='list-magnifying-glass' />
                 </div>
             </div>
             <div className='list-page-info-header'>
