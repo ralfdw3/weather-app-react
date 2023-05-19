@@ -1,13 +1,13 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    color: #FFF;
-    position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  color: #fff;
+  position: relative;
 }
 
 body {
-    overflow: hidden;
+  overflow: hidden;
 }

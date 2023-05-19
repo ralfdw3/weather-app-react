@@ -1,29 +1,28 @@
-import './Home.css'
-import PageHeader from '../../components/PageHeader';
-import PageBody from '../../components/HomePage/PageBody';
-import Search from '../../components/HomePage/Search';
-import Forecast from '../../components/HomePage/Forecast';
-import PageFooter from '../../components/PageFooter';
+import "./Home.css";
+import PageHeader from "../../components/PageHeader";
+import PageBody from "../../components/HomePage/PageBody";
+import Search from "../../components/HomePage/Search";
+import Forecast from "../../components/HomePage/Forecast";
+import PageFooter from "../../components/PageFooter";
 
 const Home = () => {
-
   return (
-    <div className='home-container'>
-      <header>
+    <div className="home-container">
+      <div className="header-home-page">
         <PageHeader />
-      </header>
+      </div>
 
-      <body>
+      <div className="body-home-page">
         <Search />
         <PageBody />
         <Forecast />
-      </body>
+      </div>
 
-      <footer>
+      <div className="footer-home-page">
         <PageFooter />
-      </footer>
+      </div>
     </div>
   );
-}
+};
 
-export default Home
+export default Home;

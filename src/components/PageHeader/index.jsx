@@ -1,14 +1,21 @@
-import './PageHeader.css'
+import "./PageHeader.css";
+import { Outlet, Link } from "react-router-dom";
 
 const PageHeader = () => {
-    return (
-        <section className='page-header-container'>
-            <div className='page-header-info'>
-                <div className='header-button'>Home</div>
-                <div className='header-button'>Cadastrar</div>
-                <div className='header-button'>Listar</div>
-            </div>
-        </section>
-    )
-}
-export default PageHeader
+  return (
+    <section className="page-header-container">
+      <div className="page-header-info">
+        <Link to="/" className="header-button">
+          Home
+        </Link>
+        <Link to="/cadastrar" className="header-button">
+          Cadastrar
+        </Link>
+        <Link to="/listar" className="header-button">
+          Listar
+        </Link>
+      </div>
+    </section>
+  );
+};
+export default PageHeader;
