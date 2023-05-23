@@ -48,7 +48,7 @@ const PageBody = () => {
     fetch(
       "http://localhost:8080/v1/forecast/week?cityName=" +
         `${cityName}` +
-        "&page=0&size=6&sort=date,desc",
+        "&page=0&size=6&sort=date",
       {
         method: "GET",
         headers: {

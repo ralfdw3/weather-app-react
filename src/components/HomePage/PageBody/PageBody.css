@@ -60,6 +60,10 @@
   transform: translate(-50%, 25%);
 }
 
+.magnifying-glass:hover {
+  cursor: pointer;
+}
+
 .today-container {
   width: 90vw;
   margin: 0 auto 0 auto;

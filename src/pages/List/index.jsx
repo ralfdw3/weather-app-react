@@ -1,31 +1,30 @@
-import './List.css'
-import React, { useState } from 'react';
-import PageHeader from '../../components/PageHeader';
-import ListPageBody from '../../components/ListPage/ListPageBody';
-import Pagination from '../../components/ListPage/Pagination';
-import PageFooter from '../../components/PageFooter';
+import "./List.css";
+import React, { useState } from "react";
+import PageHeader from "../../components/PageHeader";
+import ListPageBody from "../../components/ListPage/ListPageBody";
+import Pagination from "../../components/ListPage/Pagination";
+import PageFooter from "../../components/PageFooter";
 
 const List = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 10;
 
   return (
-    <div className='list-container'>
-
-      <header>
+    <div className="list-container">
+      <div>
         <PageHeader />
-      </header>
+      </div>
 
-      <body>
+      <div>
         <ListPageBody />
-        <Pagination currentPage={currentPage} totalPages={totalPages}/>
-      </body>
+        <Pagination currentPage={currentPage} totalPages={totalPages} />
+      </div>
 
-      <footer>
+      <div>
         <PageFooter />
-      </footer>
+      </div>
     </div>
   );
-}
+};
 
-export default List
+export default List;
