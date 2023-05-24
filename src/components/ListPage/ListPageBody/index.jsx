@@ -1,17 +1,68 @@
 import "./ListPageBody.css";
+import { useState, useEffect } from "react";
+import { format } from "date-fns";
 
 const ListPageBody = () => {
+  const [cityName, setCityName] = useState("Lajeado");
+  const [allForecast, setAllForecast] = useState([]);
+  const [pageNumber, setPageNumber] = useState(0);
+  const [totalPages, setTotalPages] = useState("");
+
+  useEffect(() => {
+    getAllForecasts();
+  }, [pageNumber]);
+
+  const handlePageChange = (newPageNumber) => {
+    setPageNumber(newPageNumber);
+  };
+
+  const getAllForecasts = () => {
+    fetch(
+      "http://localhost:8080/v1/forecast/all?cityName=" +
+        `${cityName}` +
+        "&page=" +
+        `${pageNumber}` +
+        "&size=10&sort=date,desc",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) =>
+        response.json().then((data) => {
+          if (data.content.length !== 0) {
+            setAllForecast(data.content);
+            setTotalPages(data.totalPages);
+          }
+          console.log(data);
+          console.log(
+            "FETCH: http://localhost:8080/v1/forecast/all?cityName=" +
+              `${cityName}` +
+              "&page=" +
+              `${pageNumber}` +
+              "&size=10&sort=date,desc"
+          );
+        })
+      )
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="list-page-container">
       <h1>Cadastro Metereológico</h1>
       <div className="list-page-search-city">
         <span>Cidade</span>
         <div className="list-page-input-and-magnifying-glass">
-          <input type="text" />
+          <input type="text" onChange={(e) => setCityName(e.target.value)} />
           <img
             src="src/images/magnifying-glass.png"
             alt="lupa"
             className="list-magnifying-glass"
+            onClick={getAllForecasts}
           />
         </div>
       </div>
@@ -21,10 +72,12 @@ const ListPageBody = () => {
         <span>Ação</span>
       </div>
       <div className="list-all-info">
-        <div className="list-page-info">
-          <span className="list-page-info-city">Porto Alegre</span>
-          <span className="list-page-info-date">31/03/2023</span>
-          <div className="list-page-info-images">
+        {allForecast.map((forecast) => (
+          <div className="list-page-info" key={forecast.id}>
+            <span className="list-page-info-city">{forecast.city.name}</span>
+            <span className="list-page-info-date">
+              {new Date(forecast.date).toLocaleDateString("pt-BR")}
+            </span>
             <img
               src="src/images/listpage/edit.png"
               alt="editar"
@@ -36,118 +89,29 @@ const ListPageBody = () => {
               className="list-page-info-image-exclude"
             />
           </div>
+        ))}
+      </div>
+      <div className="list-pagination">
+        <div
+          onClick={() => {
+            if (pageNumber > 0) {
+              handlePageChange(pageNumber - 1);
+            }
+          }}
+        >
+          {"< "}
         </div>
-        <div className="list-page-info">
-          <span className="list-page-info-city">Porto Alegre</span>
-          <span className="list-page-info-date">31/03/2023</span>
-          <div className="list-page-info-images">
-            <img
-              src="src/images/listpage/edit.png"
-              alt="editar"
-              className="list-page-info-image-edit"
-            />
-            <img
-              src="src/images/listpage/exclude.png"
-              alt="excluir"
-              className="list-page-info-image-exclude"
-            />
-          </div>
-        </div>
-        <div className="list-page-info">
-          <span className="list-page-info-city">Porto Alegre</span>
-          <span className="list-page-info-date">31/03/2023</span>
-          <div className="list-page-info-images">
-            <img
-              src="src/images/listpage/edit.png"
-              alt="editar"
-              className="list-page-info-image-edit"
-            />
-            <img
-              src="src/images/listpage/exclude.png"
-              alt="excluir"
-              className="list-page-info-image-exclude"
-            />
-          </div>
-        </div>
-        <div className="list-page-info">
-          <span className="list-page-info-city">Porto Alegre</span>
-          <span className="list-page-info-date">31/03/2023</span>
-          <div className="list-page-info-images">
-            <img
-              src="src/images/listpage/edit.png"
-              alt="editar"
-              className="list-page-info-image-edit"
-            />
-            <img
-              src="src/images/listpage/exclude.png"
-              alt="excluir"
-              className="list-page-info-image-exclude"
-            />
-          </div>
-        </div>
-        <div className="list-page-info">
-          <span className="list-page-info-city">Porto Alegre</span>
-          <span className="list-page-info-date">31/03/2023</span>
-          <div className="list-page-info-images">
-            <img
-              src="src/images/listpage/edit.png"
-              alt="editar"
-              className="list-page-info-image-edit"
-            />
-            <img
-              src="src/images/listpage/exclude.png"
-              alt="excluir"
-              className="list-page-info-image-exclude"
-            />
-          </div>
-        </div>
-        <div className="list-page-info">
-          <span className="list-page-info-city">Porto Alegre</span>
-          <span className="list-page-info-date">31/03/2023</span>
-          <div className="list-page-info-images">
-            <img
-              src="src/images/listpage/edit.png"
-              alt="editar"
-              className="list-page-info-image-edit"
-            />
-            <img
-              src="src/images/listpage/exclude.png"
-              alt="excluir"
-              className="list-page-info-image-exclude"
-            />
-          </div>
-        </div>
-        <div className="list-page-info">
-          <span className="list-page-info-city">Porto Alegre</span>
-          <span className="list-page-info-date">31/03/2023</span>
-          <div className="list-page-info-images">
-            <img
-              src="src/images/listpage/edit.png"
-              alt="editar"
-              className="list-page-info-image-edit"
-            />
-            <img
-              src="src/images/listpage/exclude.png"
-              alt="excluir"
-              className="list-page-info-image-exclude"
-            />
-          </div>
-        </div>
-        <div className="list-page-info">
-          <span className="list-page-info-city">Porto Alegre</span>
-          <span className="list-page-info-date">31/03/2023</span>
-          <div className="list-page-info-images">
-            <img
-              src="src/images/listpage/edit.png"
-              alt="editar"
-              className="list-page-info-image-edit"
-            />
-            <img
-              src="src/images/listpage/exclude.png"
-              alt="excluir"
-              className="list-page-info-image-exclude"
-            />
-          </div>
+        <span>
+          Página {pageNumber + 1} de {totalPages}
+        </span>
+        <div
+          onClick={() => {
+            if (pageNumber + 1 < totalPages) {
+              handlePageChange(pageNumber + 1);
+            }
+          }}
+        >
+          {" >"}
         </div>
       </div>
     </div>
