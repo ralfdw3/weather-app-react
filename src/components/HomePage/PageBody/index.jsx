@@ -16,8 +16,11 @@ const PageBody = () => {
   }, [forecastToday]);
 
   const forecastClickWrapper = () => {
-    getTodayForecast();
+    setForecastsWeek([]);
+    setForecastToday([]);
+
     getWeekForecasts();
+    getTodayForecast();
   };
 
   const getTodayForecast = () => {
@@ -152,9 +155,7 @@ const PageBody = () => {
         <div className="forecast-items">
           {forecastsWeek.map((forecast) => (
             <div className="forecast-row" key={forecast.id}>
-              <div className="forecast-date">
-                {format(new Date(forecast.date), "dd/MM/yyyy")}
-              </div>
+              <div className="forecast-date">{forecast.date}</div>
               <img
                 className="forecast-image"
                 src="src/images/forecast/sun-with-cloud.png"
