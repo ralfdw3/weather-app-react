@@ -1,7 +1,7 @@
 import "./InputWithTitleAbove.css";
 import React from "react";
 
-const InputWithTitleAbove = ({ title, width, onChange }) => {
+const InputWithTitleAbove = ({ title, width, onChange, value }) => {
   const handleInputChange = (event) => {
     onChange(event.target.value);
   };
@@ -15,6 +15,7 @@ const InputWithTitleAbove = ({ title, width, onChange }) => {
           style={{ width: width }}
           type="text"
           onChange={handleInputChange}
+          value={value}
         />
       </div>
     </div>

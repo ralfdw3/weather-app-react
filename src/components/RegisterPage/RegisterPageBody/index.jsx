@@ -1,9 +1,14 @@
 import InputWithTitleAbove from "../../InputWithTitleAbove";
 import TitleAndOptions from "../TitleAndOptions";
 import "./RegisterPageBody.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const RegisterPage = () => {
+  const location = useLocation();
+  const forecast = location.state?.forecast;
+
+  const [id, setId] = useState("");
   const [city, setCity] = useState("");
   const [date, setDate] = useState("");
   const [shift, setShift] = useState("");
@@ -13,6 +18,34 @@ const RegisterPage = () => {
   const [precipitation, setPrecipitation] = useState("");
   const [humidity, setHumidity] = useState("");
   const [airSpeed, setAirSpeed] = useState("");
+
+  useEffect(() => {
+    if (location.state && location.state.forecast) {
+      const {
+        id,
+        city,
+        date,
+        shift,
+        weather,
+        maxTemperature,
+        minTemperature,
+        precipitation,
+        humidity,
+        airSpeed,
+      } = location.state.forecast;
+
+      setId(id);
+      setCity(city.name);
+      setDate(date);
+      setShift(shift);
+      setWeather(weather);
+      setMaxTemperature(maxTemperature);
+      setMinTemperature(minTemperature);
+      setPrecipitation(precipitation);
+      setHumidity(humidity);
+      setAirSpeed(airSpeed);
+    }
+  }, []);
 
   const handleCityChange = (info) => {
     setCity(info);
@@ -60,6 +93,7 @@ const RegisterPage = () => {
 
   const handleSave = () => {
     const formData = {
+      id,
       city,
       date,
       shift,
@@ -71,8 +105,10 @@ const RegisterPage = () => {
       airSpeed,
     };
 
+    console.log(formData);
+
     fetch("http://localhost:8080/v1/forecast", {
-      method: "POST",
+      method: forecast ? "PUT" : "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -95,12 +131,14 @@ const RegisterPage = () => {
           title="Cidade"
           width="300px"
           onChange={handleCityChange}
+          value={city}
         />
         <div className="register-date">
           <InputWithTitleAbove
             title="Data"
             width="180px"
             onChange={handleDateChange}
+            value={date}
           />
         </div>
       </div>
@@ -110,6 +148,7 @@ const RegisterPage = () => {
             title="Tempo"
             option1={"Limpo"}
             option2={"Tempestade"}
+            value={weather}
             onChange={handleWeatherChange}
           />
         </div>
@@ -119,6 +158,7 @@ const RegisterPage = () => {
             option1={"Manhã"}
             option2={"Noite"}
             onChange={handleShiftChange}
+            value={shift}
           />
         </div>
         <div className="maxtemperature-and-precipitation">
@@ -127,6 +167,7 @@ const RegisterPage = () => {
               title="Temperatura Máxima"
               width="64px"
               onChange={handleMaxTemperatureChange}
+              value={maxTemperature}
             />
           </div>
           <div className="precipitation-input">
@@ -134,6 +175,7 @@ const RegisterPage = () => {
               title="Precipitação"
               width="64px"
               onChange={handlePrecipitationChange}
+              value={precipitation}
             />
           </div>
         </div>
@@ -142,6 +184,7 @@ const RegisterPage = () => {
             title="Umidade"
             width="64px"
             onChange={handleHumidityChange}
+            value={humidity}
           />
         </div>
         <div className="mintemperature-and-airspeed">
@@ -150,6 +193,7 @@ const RegisterPage = () => {
               title="Temperatura Mínima"
               width="64px"
               onChange={handleMinTemperatureChange}
+              value={minTemperature}
             />
           </div>
           <div className="air-speed-input">
@@ -157,6 +201,7 @@ const RegisterPage = () => {
               title="Velocidade do vento"
               width="64px"
               onChange={handleAirSpeedChange}
+              value={airSpeed}
             />
           </div>
         </div>
@@ -164,7 +209,7 @@ const RegisterPage = () => {
 
       <div className="register-page-buttons">
         <div className="register-page-button">
-          <button onClick={() => console.log("cancelar")}>Cancelar</button>
+          <button onClick={() => console.log(weather)}>Cancelar</button>
           <button onClick={handleSave}>Salvar</button>
         </div>
       </div>

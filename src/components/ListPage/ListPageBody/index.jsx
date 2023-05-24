@@ -1,7 +1,9 @@
 import "./ListPageBody.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ListPageBody = () => {
+  const navigate = useNavigate();
   const [cityName, setCityName] = useState("Teutonia");
   const [allForecast, setAllForecast] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
@@ -11,7 +13,7 @@ const ListPageBody = () => {
     getAllForecasts();
   }, [pageNumber]);
 
-  const handlePageChange = (newPageNumber) => {
+  const handlePageNumber = (newPageNumber) => {
     setPageNumber(newPageNumber);
   };
 
@@ -19,6 +21,10 @@ const ListPageBody = () => {
     deleteForecast(forecastId).then(() => {
       getAllForecasts();
     });
+  };
+
+  const handlePageEdit = (forecast) => {
+    navigate("/cadastrar", { state: { forecast } });
   };
 
   const getAllForecasts = () => {
@@ -97,13 +103,12 @@ const ListPageBody = () => {
         {allForecast.map((forecast) => (
           <div className="list-page-info" key={forecast.id}>
             <span className="list-page-info-city">{forecast.city.name}</span>
-            <span className="list-page-info-date">
-              {new Date(forecast.date).toLocaleDateString("pt-BR")}
-            </span>
+            <span className="list-page-info-date">{forecast.date}</span>
             <img
               src="src/images/listpage/edit.png"
               alt="editar"
               className="list-page-info-image-edit"
+              onClick={() => handlePageEdit(forecast)}
             />
             <img
               src="src/images/listpage/exclude.png"
@@ -118,7 +123,7 @@ const ListPageBody = () => {
         <div
           onClick={() => {
             if (pageNumber > 0) {
-              handlePageChange(pageNumber - 1);
+              handlePageNumber(pageNumber - 1);
             }
           }}
         >
@@ -130,7 +135,7 @@ const ListPageBody = () => {
         <div
           onClick={() => {
             if (pageNumber + 1 < totalPages) {
-              handlePageChange(pageNumber + 1);
+              handlePageNumber(pageNumber + 1);
             }
           }}
         >

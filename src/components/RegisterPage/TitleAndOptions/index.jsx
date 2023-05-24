@@ -1,12 +1,31 @@
 import "./TitleAndOptions.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const TitleAndOptions = ({ title, option1, option2, onChange }) => {
+const TitleAndOptions = ({ title, option1, option2, onChange, value }) => {
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     onChange(option);
+  };
+
+  useEffect(() => {
+    setSelectedOption(handleValue(value));
+  }, [value]);
+
+  const handleValue = (value) => {
+    switch (value) {
+      case "DAY":
+        return option1;
+      case "NIGHT":
+        return option2;
+      case "CLEAR":
+        return option1;
+      case "STORM":
+        return option2;
+      default:
+        return "";
+    }
   };
 
   const option1Class =
