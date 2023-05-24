@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { format } from "date-fns";
 
 const PageBody = () => {
-  const [cityName, setCityName] = useState("Lajeado");
+  const [cityName, setCityName] = useState("Teutonia");
   const [forecastsWeek, setForecastsWeek] = useState([]);
   const [forecastToday, setForecastToday] = useState([]);
   const today = new Date(Date.now());
@@ -13,7 +13,7 @@ const PageBody = () => {
     if (forecastToday.length === 0) {
       forecastClickWrapper();
     }
-  }, [cityName]);
+  }, [forecastToday]);
 
   const forecastClickWrapper = () => {
     getTodayForecast();

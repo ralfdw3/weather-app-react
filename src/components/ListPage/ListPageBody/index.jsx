@@ -1,9 +1,8 @@
 import "./ListPageBody.css";
 import { useState, useEffect } from "react";
-import { format } from "date-fns";
 
 const ListPageBody = () => {
-  const [cityName, setCityName] = useState("Lajeado");
+  const [cityName, setCityName] = useState("Teutonia");
   const [allForecast, setAllForecast] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
   const [totalPages, setTotalPages] = useState("");
@@ -14,6 +13,12 @@ const ListPageBody = () => {
 
   const handlePageChange = (newPageNumber) => {
     setPageNumber(newPageNumber);
+  };
+
+  const handlePageDelete = (forecastId) => {
+    deleteForecast(forecastId).then(() => {
+      getAllForecasts();
+    });
   };
 
   const getAllForecasts = () => {
@@ -35,19 +40,36 @@ const ListPageBody = () => {
           if (data.content.length !== 0) {
             setAllForecast(data.content);
             setTotalPages(data.totalPages);
+          } else {
+            alert("Nenhuma previsão cadastrada nesta cidade.");
           }
           console.log(data);
-          console.log(
-            "FETCH: http://localhost:8080/v1/forecast/all?cityName=" +
-              `${cityName}` +
-              "&page=" +
-              `${pageNumber}` +
-              "&size=10&sort=date,desc"
-          );
         })
       )
       .catch((error) => {
+        alert(
+          "Erro ao buscar as previsões desta cidade. Verifique o nome digitado."
+        );
         console.log(error);
+      });
+  };
+
+  const deleteForecast = (id) => {
+    return fetch("http://localhost:8080/v1/forecast?id=" + `${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        console.log("http://localhost:8080/v1/forecast?id=" + `${id}`);
+        if (response.ok) {
+          console.log("Recurso deletado com sucesso.");
+          console.log(response);
+        }
+      })
+      .catch((error) => {
+        console.log("Ocorreu um erro durante a exclusão:", error);
       });
   };
 
@@ -87,6 +109,7 @@ const ListPageBody = () => {
               src="src/images/listpage/exclude.png"
               alt="excluir"
               className="list-page-info-image-exclude"
+              onClick={() => handlePageDelete(forecast.id)}
             />
           </div>
         ))}

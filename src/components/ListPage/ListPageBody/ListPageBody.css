@@ -94,20 +94,19 @@
   align-items: center;
   margin: 0 0 8px 0;
 }
+
 .list-page-info-city {
   width: 41vw;
 }
+
 .list-page-info-date {
   width: 40vw;
 }
 
-.list-page-info-image-edit {
+.list-page-info img {
   width: 26px;
   margin: 0 1em 0 0.4em;
-}
-.list-page-info-image-exclude {
-  width: 26px;
-  margin: 0 1.5vw 0 0.4em;
+  cursor: pointer;
 }
 
 .list-all-info::-webkit-scrollbar {
