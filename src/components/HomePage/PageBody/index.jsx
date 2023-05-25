@@ -10,10 +10,8 @@ const PageBody = () => {
   const today = new Date(Date.now());
 
   useEffect(() => {
-    if (forecastToday.length === 0) {
-      forecastClickWrapper();
-    }
-  }, [forecastToday]);
+    forecastClickWrapper();
+  }, []);
 
   const forecastClickWrapper = () => {
     setForecastsWeek([]);
@@ -42,7 +40,6 @@ const PageBody = () => {
         })
       )
       .catch((error) => {
-        alert("404 - Nenhuma previsão de tempo encontrada.");
         console.log(error);
       });
   };
@@ -158,10 +155,10 @@ const PageBody = () => {
               <div className="forecast-date">{forecast.date}</div>
               <img
                 className="forecast-image"
-                src="src/images/forecast/sun-with-cloud.png"
-                alt="sol com nuvens"
+                src={`src/images/forecast/${forecast.weatherStatus}.png`}
+                alt={forecast.weatherStatus}
               />
-              <div className="forecast-text">Sol com nuvens</div>
+              <div className="forecast-text">{forecast.weatherStatus}</div>
               <div className="max-temperature">{forecast.maxTemperature}°C</div>
               <div className="min-temperature">{forecast.minTemperature}°C</div>
             </div>

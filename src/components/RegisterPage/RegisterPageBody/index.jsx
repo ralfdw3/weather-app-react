@@ -117,8 +117,10 @@ const RegisterPage = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        alert("Previsão do tempo registrada");
       })
       .catch((error) => {
+        alert("Erro ao gravar a previsão do tempo");
         console.error(error);
       });
   };
