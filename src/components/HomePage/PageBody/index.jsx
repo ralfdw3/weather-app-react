@@ -2,6 +2,7 @@ import "./PageBody.css";
 import { GoLocation } from "react-icons/go";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
+import { pt } from "date-fns/locale";
 
 const PageBody = () => {
   const [cityName, setCityName] = useState("Teutonia");
@@ -37,6 +38,7 @@ const PageBody = () => {
       .then((response) =>
         response.json().then((data) => {
           setForecastToday(data);
+          console.log(data.weatherStatus);
         })
       )
       .catch((error) => {
@@ -76,7 +78,7 @@ const PageBody = () => {
           <div className="input-and-icons-row">
             <div className="search-city-input-and-image">
               <img
-                src="src/images/magnifying-glass.png"
+                src="src/images/today-forecast/magnifying-glass.png"
                 alt="lupa"
                 className="magnifying-glass"
                 onClick={forecastClickWrapper}
@@ -99,7 +101,7 @@ const PageBody = () => {
         <span className="today">Hoje</span>
         <div className="weather-today">
           <img
-            src="src/images/cloudy-weather.png"
+            src={`src/images/today-forecast/${forecastToday.weatherStatus}.png`}
             alt="imagem do tempo"
             className="cloud-image"
           />
@@ -117,7 +119,7 @@ const PageBody = () => {
           <div className="small-icons">
             <div className="umbrella-container">
               <img
-                src="src/images/umbrella.png"
+                src="src/images/today-forecast/umbrella.png"
                 alt="precipitação"
                 className="umbrella-image"
               />
@@ -128,7 +130,7 @@ const PageBody = () => {
             </div>
             <div className="drop-container">
               <img
-                src="src/images/drop.png"
+                src="src/images/today-forecast/drop.png"
                 alt="umidade do ar"
                 className="drop-image"
               />
@@ -137,7 +139,7 @@ const PageBody = () => {
             </div>
             <div className="air-container">
               <img
-                src="src/images/air.png"
+                src="src/images/today-forecast/air.png"
                 alt="velocidade do vento"
                 className="air-image"
               />
@@ -152,7 +154,9 @@ const PageBody = () => {
         <div className="forecast-items">
           {forecastsWeek.map((forecast) => (
             <div className="forecast-row" key={forecast.id}>
-              <div className="forecast-date">{forecast.date}</div>
+              <div className="forecast-date">
+                {new Date(forecast.date).toLocaleDateString(pt)}
+              </div>
               <img
                 className="forecast-image"
                 src={`src/images/forecast/${forecast.weatherStatus}.png`}
