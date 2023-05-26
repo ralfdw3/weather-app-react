@@ -73,10 +73,11 @@ const PageBody = () => {
   return (
     <>
       <div className="search">
-        <div className="search-content">
-          <span>Pesquise a cidade</span>
-          <div className="input-and-icons-row">
-            <div className="search-city-input-and-image">
+        <div className="input-and-icons-row">
+          <h3 className="today">Hoje</h3>
+          <div className="search-city-input-and-image">
+            <span>Pesquise a cidade</span>
+            <div className="search-container">
               <img
                 src="src/images/today-forecast/magnifying-glass.png"
                 alt="lupa"
@@ -87,19 +88,15 @@ const PageBody = () => {
                 type="text"
                 onChange={(e) => setCityName(e.target.value)}
               />
-            </div>
-
-            <div className="circle">
-              <div>
+              <div className="circle">
                 <GoLocation className="location-icon" />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="today-container">
-        <span className="today">Hoje</span>
-        <div className="weather-today">
+      <div className="weather-today-container">
+        <div className="weather-today-temperatures">
           <img
             src={`src/images/today-forecast/${forecastToday.weatherStatus}.png`}
             alt="imagem do tempo"
@@ -116,36 +113,36 @@ const PageBody = () => {
             </span>
             <span className="min-degree">°</span>
           </div>
-          <div className="small-icons">
-            <div className="umbrella-container">
-              <img
-                src="src/images/today-forecast/umbrella.png"
-                alt="precipitação"
-                className="umbrella-image"
-              />
-              <span className="percentage">
-                <div>{forecastToday.precipitation}%</div>
-              </span>
-              <span className="climate-data">Precipitação</span>
-            </div>
-            <div className="drop-container">
-              <img
-                src="src/images/today-forecast/drop.png"
-                alt="umidade do ar"
-                className="drop-image"
-              />
-              <span className="percentage">{forecastToday.humidity}%</span>
-              <span className="climate-data">Umidade</span>
-            </div>
-            <div className="air-container">
-              <img
-                src="src/images/today-forecast/air.png"
-                alt="velocidade do vento"
-                className="air-image"
-              />
-              <span className="percentage">{forecastToday.airSpeed}%</span>
-              <span className="climate-data">Velocidade do vento</span>
-            </div>
+        </div>
+        <div className="weather-today-others-infos">
+          <div className="umbrella-container">
+            <img
+              src="src/images/today-forecast/umbrella.png"
+              alt="precipitação"
+              className="umbrella-image"
+            />
+            <span className="percentage">
+              <div>{forecastToday.precipitation}%</div>
+            </span>
+            <span className="climate-data">Precipitação</span>
+          </div>
+          <div className="drop-container">
+            <img
+              src="src/images/today-forecast/drop.png"
+              alt="umidade do ar"
+              className="drop-image"
+            />
+            <span className="percentage">{forecastToday.humidity}%</span>
+            <span className="climate-data">Umidade</span>
+          </div>
+          <div className="air-container">
+            <img
+              src="src/images/today-forecast/air.png"
+              alt="velocidade do vento"
+              className="air-image"
+            />
+            <span className="percentage">{forecastToday.airSpeed}%</span>
+            <span className="climate-data">Velocidade do vento</span>
           </div>
         </div>
       </div>

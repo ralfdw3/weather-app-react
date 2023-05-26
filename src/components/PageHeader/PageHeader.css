@@ -11,14 +11,13 @@
 
 .page-header-info {
   display: flex;
-  justify-content: flex-start;
   margin: auto;
   width: 90vw;
+  gap: 1%;
 }
 
 .header-button {
   text-decoration: none;
-  padding-right: 1.2vw;
   font-weight: 600;
   font-size: 24px;
 }
@@ -39,4 +38,10 @@
 
 .header-button:hover::after {
   visibility: visible;
+}
+
+@media (max-width: 850px) {
+  .page-header-info {
+    gap: 3%;
+  }
 }

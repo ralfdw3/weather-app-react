@@ -9,5 +9,8 @@
 }
 
 body {
+  background: linear-gradient(180deg, #352163 0%, #331972 57.81%, #33143c 100%);
   overflow: hidden;
+  min-width: 400px;
+  min-height: 700px;
 }
