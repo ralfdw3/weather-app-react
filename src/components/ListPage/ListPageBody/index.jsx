@@ -88,7 +88,7 @@ const ListPageBody = () => {
         <div className="list-page-input-and-magnifying-glass">
           <input type="text" onChange={(e) => setCityName(e.target.value)} />
           <img
-            src="src/images/magnifying-glass.png"
+            src="src/images/today-forecast/magnifying-glass.png"
             alt="lupa"
             className="list-magnifying-glass"
             onClick={getAllForecasts}
