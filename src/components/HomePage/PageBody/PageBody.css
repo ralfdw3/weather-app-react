@@ -234,7 +234,8 @@
   }
 
   .weather-today-temperatures img {
-    width: 15%;
+    width: 10%;
+    min-width: 100px;
   }
 
   .weather-today-others-infos {
@@ -260,6 +261,7 @@
   }
 
   .forecast-image {
+    width: 36px;
     margin: 0 0 0 3vw;
   }
 }
