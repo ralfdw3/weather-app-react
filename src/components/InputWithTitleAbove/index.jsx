@@ -7,7 +7,7 @@ const InputWithTitleAbove = ({ title, width, onChange, value }) => {
   };
 
   return (
-    <div className={`input-title-container`}>
+    <div className="input-title-container">
       <span>{title}</span>
       <div>
         <input

@@ -128,91 +128,106 @@ const RegisterPage = () => {
   return (
     <div className="register-page-container">
       <h1>Cadastro Metereológico</h1>
-      <div className="city-and-date">
-        <InputWithTitleAbove
-          title="Cidade"
-          width="300px"
-          onChange={handleCityChange}
-          value={city}
-        />
-        <div className="register-date">
+      <div className="city-and-date-container">
+        <div className="city-and-date-input">
           <InputWithTitleAbove
-            title="Data"
-            width="180px"
-            onChange={handleDateChange}
-            value={date}
+            title="Cidade"
+            width="300px"
+            onChange={handleCityChange}
+            value={city}
           />
+        </div>
+        <div className="city-and-date-input">
+          <div className="register-date">
+            <InputWithTitleAbove
+              title="Data"
+              width="180px"
+              onChange={handleDateChange}
+              value={date}
+            />
+          </div>
         </div>
       </div>
       <div className="register-info-container">
-        <div className="forecast-selector">
-          <TitleAndOptions
-            title="Tempo"
-            option1={"Limpo"}
-            option2={"Tempestade"}
-            value={weather}
-            onChange={handleWeatherChange}
-          />
-        </div>
-        <div className="shift-selector">
-          <TitleAndOptions
-            title="Turno"
-            option1={"Manhã"}
-            option2={"Noite"}
-            onChange={handleShiftChange}
-            value={shift}
-          />
-        </div>
-        <div className="maxtemperature-and-precipitation">
-          <div className="max-temperature-input">
-            <InputWithTitleAbove
-              title="Temperatura Máxima"
-              width="64px"
-              onChange={handleMaxTemperatureChange}
-              value={maxTemperature}
+        <div className="register-info-selectors">
+          <div className="forecast-selector">
+            <TitleAndOptions
+              title="Tempo"
+              option1={"Limpo"}
+              option2={"Tempestade"}
+              value={weather}
+              onChange={handleWeatherChange}
             />
           </div>
-          <div className="precipitation-input">
-            <InputWithTitleAbove
-              title="Precipitação"
-              width="64px"
-              onChange={handlePrecipitationChange}
-              value={precipitation}
+          <div className="shift-selector">
+            <TitleAndOptions
+              title="Turno"
+              option1={"Manhã"}
+              option2={"Noite"}
+              onChange={handleShiftChange}
+              value={shift}
             />
           </div>
         </div>
-        <div className="humidity-input">
-          <InputWithTitleAbove
-            title="Umidade"
-            width="64px"
-            onChange={handleHumidityChange}
-            value={humidity}
-          />
-        </div>
-        <div className="mintemperature-and-airspeed">
-          <div className="min-temperature-input">
+        <div className="register-info-inputs">
+          <div className="maxtemperature-and-precipitation">
+            <div className="max-temperature-input">
+              <InputWithTitleAbove
+                title="Temperatura Máxima"
+                width="64px"
+                onChange={handleMaxTemperatureChange}
+                value={maxTemperature}
+              />
+            </div>
+            <div className="precipitation-input">
+              <InputWithTitleAbove
+                title="Precipitação"
+                width="64px"
+                onChange={handlePrecipitationChange}
+                value={precipitation}
+              />
+            </div>
+          </div>
+          <div className="humidity-input">
             <InputWithTitleAbove
-              title="Temperatura Mínima"
+              title="Umidade"
               width="64px"
-              onChange={handleMinTemperatureChange}
-              value={minTemperature}
+              onChange={handleHumidityChange}
+              value={humidity}
             />
           </div>
-          <div className="air-speed-input">
-            <InputWithTitleAbove
-              title="Velocidade do vento"
-              width="64px"
-              onChange={handleAirSpeedChange}
-              value={airSpeed}
-            />
+          <div className="mintemperature-and-airspeed">
+            <div className="min-temperature-input">
+              <InputWithTitleAbove
+                title="Temperatura Mínima"
+                width="64px"
+                onChange={handleMinTemperatureChange}
+                value={minTemperature}
+              />
+            </div>
+            <div className="air-speed-input">
+              <InputWithTitleAbove
+                title="Velocidade do vento"
+                width="64px"
+                onChange={handleAirSpeedChange}
+                value={airSpeed}
+              />
+            </div>
           </div>
         </div>
       </div>
 
       <div className="register-page-buttons">
         <div className="register-page-button">
-          <button onClick={() => console.log(weather)}>Cancelar</button>
-          <button onClick={handleSave}>Salvar</button>
+          <button
+            className="register-button-cancel"
+            onClick={() => console.log(weather)}
+          >
+            Cancelar
+          </button>
+          <button className="register-button-save" onClick={handleSave}>
+            Salvar
+          </button>
         </div>
       </div>
     </div>
