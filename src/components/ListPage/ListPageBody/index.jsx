@@ -1,4 +1,4 @@
-import { pt } from "date-fns/locale";
+import { pt, ptBR } from "date-fns/locale";
 import "./ListPageBody.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -105,7 +105,11 @@ const ListPageBody = () => {
           <div className="list-page-info" key={forecast.id}>
             <span className="list-page-info-city">{forecast.city.name}</span>
             <span className="list-page-info-date">
-              {new Date(forecast.date).toLocaleDateString(pt)}
+              {new Date(
+                forecast.date.substring(0, 4),
+                forecast.date.substring(5, 7) - 1,
+                forecast.date.substring(8, 10)
+              ).toLocaleDateString(ptBR, { timezone: "America/Sao_Paulo" })}
             </span>
             <img
               src="src/images/listpage/edit.png"

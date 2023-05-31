@@ -2,9 +2,10 @@ import InputWithTitleAbove from "../../InputWithTitleAbove";
 import TitleAndOptions from "../TitleAndOptions";
 import "./RegisterPageBody.css";
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const forecast = location.state?.forecast;
 
@@ -125,6 +126,10 @@ const RegisterPage = () => {
       });
   };
 
+  const handleCancelButton = () => {
+    navigate("/");
+  };
+
   return (
     <div className="register-page-container">
       <h1>Cadastro Metereológico</h1>
@@ -221,7 +226,7 @@ const RegisterPage = () => {
         <div className="register-page-button">
           <button
             className="register-button-cancel"
-            onClick={() => console.log(weather)}
+            onClick={() => handleCancelButton()}
           >
             Cancelar
           </button>
