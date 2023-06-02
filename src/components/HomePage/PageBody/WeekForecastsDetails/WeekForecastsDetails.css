@@ -1,0 +1,17 @@
+.week-forecast {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 60vw;
+  min-width: 50px;
+  margin: auto;
+  padding: 1vh;
+}
+
+@media (max-width: 1000px) {
+  .week-forecast {
+    width: 100%;
+  }
+}

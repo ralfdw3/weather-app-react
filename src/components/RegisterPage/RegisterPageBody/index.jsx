@@ -1,8 +1,8 @@
 import InputWithTitleAbove from "../../InputWithTitleAbove";
 import TitleAndOptions from "../TitleAndOptions";
-import "./RegisterPageBody.css";
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "./RegisterPageBody.css";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -48,14 +48,6 @@ const RegisterPage = () => {
     }
   }, []);
 
-  const handleCityChange = (info) => {
-    setCity(info);
-  };
-
-  const handleDateChange = (info) => {
-    setDate(info);
-  };
-
   const handleShiftChange = (selectedOption) => {
     if (selectedOption === "Manhã") {
       setShift("DAY");
@@ -72,26 +64,6 @@ const RegisterPage = () => {
     }
   };
 
-  const handleMaxTemperatureChange = (info) => {
-    setMaxTemperature(info);
-  };
-
-  const handleMinTemperatureChange = (info) => {
-    setMinTemperature(info);
-  };
-
-  const handlePrecipitationChange = (info) => {
-    setPrecipitation(info);
-  };
-
-  const handleHumidityChange = (info) => {
-    setHumidity(info);
-  };
-
-  const handleAirSpeedChange = (info) => {
-    setAirSpeed(info);
-  };
-
   const handleSave = () => {
     const formData = {
       id,
@@ -105,8 +77,6 @@ const RegisterPage = () => {
       humidity,
       airSpeed,
     };
-
-    console.log(formData);
 
     fetch("http://localhost:8080/v1/forecast", {
       method: forecast ? "PUT" : "POST",
@@ -138,7 +108,7 @@ const RegisterPage = () => {
           <InputWithTitleAbove
             title="Cidade"
             width="300px"
-            onChange={handleCityChange}
+            onChange={(info) => setCity(info)}
             value={city}
           />
         </div>
@@ -147,7 +117,8 @@ const RegisterPage = () => {
             <InputWithTitleAbove
               title="Data"
               width="180px"
-              onChange={handleDateChange}
+              type="date"
+              onChange={(info) => setDate(info)}
               value={date}
             />
           </div>
@@ -180,7 +151,7 @@ const RegisterPage = () => {
               <InputWithTitleAbove
                 title="Temperatura Máxima"
                 width="64px"
-                onChange={handleMaxTemperatureChange}
+                onChange={(info) => setMaxTemperature(info)}
                 value={maxTemperature}
               />
             </div>
@@ -188,7 +159,7 @@ const RegisterPage = () => {
               <InputWithTitleAbove
                 title="Precipitação"
                 width="64px"
-                onChange={handlePrecipitationChange}
+                onChange={(info) => setPrecipitation(info)}
                 value={precipitation}
               />
             </div>
@@ -197,7 +168,7 @@ const RegisterPage = () => {
             <InputWithTitleAbove
               title="Umidade"
               width="64px"
-              onChange={handleHumidityChange}
+              onChange={(info) => setHumidity(info)}
               value={humidity}
             />
           </div>
@@ -206,7 +177,7 @@ const RegisterPage = () => {
               <InputWithTitleAbove
                 title="Temperatura Mínima"
                 width="64px"
-                onChange={handleMinTemperatureChange}
+                onChange={(info) => setMinTemperature(info)}
                 value={minTemperature}
               />
             </div>
@@ -214,7 +185,7 @@ const RegisterPage = () => {
               <InputWithTitleAbove
                 title="Velocidade do vento"
                 width="64px"
-                onChange={handleAirSpeedChange}
+                onChange={(info) => setAirSpeed(info)}
                 value={airSpeed}
               />
             </div>

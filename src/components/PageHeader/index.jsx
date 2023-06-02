@@ -1,5 +1,5 @@
 import "./PageHeader.css";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const PageHeader = () => {
   return (

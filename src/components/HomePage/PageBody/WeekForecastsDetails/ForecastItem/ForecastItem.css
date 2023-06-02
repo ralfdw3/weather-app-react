@@ -1,0 +1,52 @@
+.forecast-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+}
+
+.forecast-date {
+  margin: 0 5vw 0 0;
+}
+
+.forecast-image {
+  margin: 0 0 0 3vw;
+  width: 6%;
+  min-width: 36px;
+}
+
+.forecast-text {
+  width: 250px;
+  opacity: 0.6;
+  margin: 0 0 0 1vw;
+}
+
+.min-temperature {
+  margin: 0 0 0 0;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.max-temperature {
+  margin: 0 3vw 0 0;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1000px) {
+  .forecast-item {
+    width: 100%;
+  }
+
+  .forecast-date {
+    margin: 0;
+  }
+
+  .forecast-image {
+    width: 36px;
+    margin: 0 0 0 3vw;
+  }
+}
