@@ -1,4 +1,3 @@
-import { pt, ptBR } from "date-fns/locale";
 import "./ListPageBody.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -109,7 +108,7 @@ const ListPageBody = () => {
                 forecast.date.substring(0, 4),
                 forecast.date.substring(5, 7) - 1,
                 forecast.date.substring(8, 10)
-              ).toLocaleDateString(ptBR, { timezone: "America/Sao_Paulo" })}
+              ).toLocaleDateString("pt-BR", { timezone: "America/Sao_Paulo" })}
             </span>
             <img
               src="src/images/listpage/edit.png"

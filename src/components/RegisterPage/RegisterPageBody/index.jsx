@@ -1,14 +1,27 @@
 import InputWithTitleAbove from "../../InputWithTitleAbove";
 import TitleAndOptions from "../TitleAndOptions";
+import Button from "../../Button";
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./RegisterPageBody.css";
 
 const RegisterPage = () => {
+  // consts
   const navigate = useNavigate();
   const location = useLocation();
   const forecast = location.state?.forecast;
 
+  const SHIFT_OPTIONS = {
+    DAY: "DAY",
+    NIGHT: "NIGHT",
+  };
+
+  const WEATHER_OPTIONS = {
+    CLEAR: "CLEAR",
+    STORM: "STORM",
+  };
+
+  // states
   const [id, setId] = useState("");
   const [city, setCity] = useState("");
   const [date, setDate] = useState("");
@@ -20,48 +33,25 @@ const RegisterPage = () => {
   const [humidity, setHumidity] = useState("");
   const [airSpeed, setAirSpeed] = useState("");
 
-  useEffect(() => {
-    if (location.state && location.state.forecast) {
-      const {
-        id,
-        city,
-        date,
-        shift,
-        weather,
-        maxTemperature,
-        minTemperature,
-        precipitation,
-        humidity,
-        airSpeed,
-      } = location.state.forecast;
-
-      setId(id);
-      setCity(city.name);
-      setDate(date);
-      setShift(shift);
-      setWeather(weather);
-      setMaxTemperature(maxTemperature);
-      setMinTemperature(minTemperature);
-      setPrecipitation(precipitation);
-      setHumidity(humidity);
-      setAirSpeed(airSpeed);
-    }
-  }, []);
-
+  // handlers
   const handleShiftChange = (selectedOption) => {
     if (selectedOption === "Manhã") {
-      setShift("DAY");
+      setShift(SHIFT_OPTIONS.DAY);
     } else {
-      setShift("NIGHT");
+      setShift(SHIFT_OPTIONS.NIGHT);
     }
   };
 
   const handleWeatherChange = (selectedOption) => {
     if (selectedOption === "Limpo") {
-      setWeather("CLEAR");
+      setWeather(WEATHER_OPTIONS.CLEAR);
     } else {
-      setWeather("STORM");
+      setWeather(WEATHER_OPTIONS.STORM);
     }
+  };
+
+  const handleCancelButton = () => {
+    navigate("/");
   };
 
   const handleSave = () => {
@@ -96,14 +86,38 @@ const RegisterPage = () => {
       });
   };
 
-  const handleCancelButton = () => {
-    navigate("/");
-  };
+  useEffect(() => {
+    if (location.state && location.state.forecast) {
+      const {
+        id,
+        city,
+        date,
+        shift,
+        weather,
+        maxTemperature,
+        minTemperature,
+        precipitation,
+        humidity,
+        airSpeed,
+      } = location.state.forecast;
+
+      setId(id);
+      setCity(city.name);
+      setDate(date);
+      setShift(shift);
+      setWeather(weather);
+      setMaxTemperature(maxTemperature);
+      setMinTemperature(minTemperature);
+      setPrecipitation(precipitation);
+      setHumidity(humidity);
+      setAirSpeed(airSpeed);
+    }
+  }, []);
 
   return (
     <div className="register-page-container">
       <h1>Cadastro Metereológico</h1>
-      <div className="city-and-date-container">
+      <section className="city-and-date-container">
         <div className="city-and-date-input">
           <InputWithTitleAbove
             title="Cidade"
@@ -123,8 +137,9 @@ const RegisterPage = () => {
             />
           </div>
         </div>
-      </div>
-      <div className="register-info-container">
+      </section>
+
+      <section className="register-info-container">
         <div className="register-info-selectors">
           <div className="forecast-selector">
             <TitleAndOptions
@@ -150,7 +165,7 @@ const RegisterPage = () => {
             <div className="max-temperature-input">
               <InputWithTitleAbove
                 title="Temperatura Máxima"
-                width="64px"
+                width="5vw"
                 onChange={(info) => setMaxTemperature(info)}
                 value={maxTemperature}
               />
@@ -158,7 +173,7 @@ const RegisterPage = () => {
             <div className="precipitation-input">
               <InputWithTitleAbove
                 title="Precipitação"
-                width="64px"
+                width="5vw"
                 onChange={(info) => setPrecipitation(info)}
                 value={precipitation}
               />
@@ -167,7 +182,7 @@ const RegisterPage = () => {
           <div className="humidity-input">
             <InputWithTitleAbove
               title="Umidade"
-              width="64px"
+              width="5vw"
               onChange={(info) => setHumidity(info)}
               value={humidity}
             />
@@ -176,7 +191,7 @@ const RegisterPage = () => {
             <div className="min-temperature-input">
               <InputWithTitleAbove
                 title="Temperatura Mínima"
-                width="64px"
+                width="5vw"
                 onChange={(info) => setMinTemperature(info)}
                 value={minTemperature}
               />
@@ -184,28 +199,19 @@ const RegisterPage = () => {
             <div className="air-speed-input">
               <InputWithTitleAbove
                 title="Velocidade do vento"
-                width="64px"
+                width="5vw"
                 onChange={(info) => setAirSpeed(info)}
                 value={airSpeed}
               />
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="register-page-buttons">
-        <div className="register-page-button">
-          <button
-            className="register-button-cancel"
-            onClick={() => handleCancelButton()}
-          >
-            Cancelar
-          </button>
-          <button className="register-button-save" onClick={handleSave}>
-            Salvar
-          </button>
-        </div>
-      </div>
+      <section className="register-page-buttons">
+        <Button onClick={handleCancelButton}>Cancelar</Button>
+        <Button onClick={handleSave}>Salvar</Button>
+      </section>
     </div>
   );
 };

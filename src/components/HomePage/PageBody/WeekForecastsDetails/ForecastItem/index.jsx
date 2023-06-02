@@ -1,11 +1,12 @@
 import "./ForecastItem.css";
+import DateFormat from "../../../../DateFormat";
 
 const ForecastItem = ({ forecast }) => {
-  console.log(forecast);
+  console.log(forecast.date);
   return (
     <div className="forecast-item">
       <span className="forecast-date">
-        {new Date(forecast.date).toLocaleDateString("pt-BR")}
+        <DateFormat date={forecast.date} />
       </span>
       <img
         className="forecast-image"
