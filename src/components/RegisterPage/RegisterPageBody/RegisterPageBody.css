@@ -86,6 +86,10 @@
 
 @media (max-width: 900px) {
   .city-and-date-container {
+    margin-top: 20px;
+  }
+
+  .city-and-date-container {
     flex-direction: column;
   }
 
@@ -94,7 +98,7 @@
   }
 
   .register-info-container {
-    margin: 2vh auto;
+    margin: 0 auto;
     padding: 20px;
     flex-direction: column;
     height: 35vh;
@@ -117,6 +121,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    text-align: start;
     gap: 0;
   }
 
@@ -145,7 +150,7 @@
 
 @media (max-width: 770px) {
   .register-page-container {
-    margin: 1vh 1vw;
+    margin: 0 2vw;
   }
 
   .register-page-container h1 {
@@ -169,21 +174,16 @@
   .maxtemperature-and-precipitation {
     flex-wrap: wrap;
     height: 25vh;
-    align-items: flex-end;
-    justify-content: center;
+    align-items: end;
   }
 
   .humidity-input {
-    align-items: flex-end;
-    justify-content: center;
     height: 25vh;
   }
 
   .mintemperature-and-airspeed {
     flex-wrap: wrap;
     height: 25vh;
-    justify-content: center;
-    align-items: flex-end;
   }
 
   .register-page-buttons {

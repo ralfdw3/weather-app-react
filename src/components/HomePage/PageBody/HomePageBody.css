@@ -1,33 +1,25 @@
-.header-container {
+.home-body-container {
   display: flex;
-  flex-direction: row;
   width: 90vw;
-  align-items: end;
+  align-items: flex-end;
+  justify-content: space-between;
   margin: 2% auto;
 }
 
-.header-container h3 {
+.home-body-container h3 {
   font-size: 24px;
   font-weight: bold;
-  width: 60%;
+  width: auto;
 }
 
-.header-container span {
+.home-body-container span {
   font-weight: 600;
   font-size: 22px;
 }
 
-.search-city-input-and-image {
+.home-search {
   display: flex;
-  flex-direction: column;
-  width: 40%;
-}
-
-.search-container {
-  display: flex;
-  align-items: center;
-  gap: 2%;
-  padding: 1%;
+  align-items: flex-end;
 }
 
 .circle {
@@ -37,19 +29,11 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  margin-left: 8px;
   background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
 }
 
 .location-icon {
   width: 18px;
   height: auto;
-}
-
-.magnifying-glass {
-  width: 24px;
-  height: 22px;
-}
-
-.magnifying-glass:hover {
-  cursor: pointer;
 }

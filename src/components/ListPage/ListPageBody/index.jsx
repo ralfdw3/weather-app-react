@@ -1,18 +1,17 @@
 import "./ListPageBody.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import InputWithImage from "../../InputWithImage";
 
 const ListPageBody = () => {
+  // consts
   const navigate = useNavigate();
   const [cityName, setCityName] = useState("Teutonia");
   const [allForecast, setAllForecast] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
   const [totalPages, setTotalPages] = useState("");
 
-  useEffect(() => {
-    getAllForecasts();
-  }, [pageNumber]);
-
+  // handlers
   const handlePageNumber = (newPageNumber) => {
     setPageNumber(newPageNumber);
   };
@@ -79,12 +78,22 @@ const ListPageBody = () => {
       });
   };
 
+  useEffect(() => {
+    getAllForecasts();
+  }, [pageNumber]);
+
   return (
-    <div className="list-page-container">
+    <section className="list-page-container">
       <h1>Cadastro Metereológico</h1>
       <div className="list-page-search-city">
         <span>Cidade</span>
-        <div className="list-page-input-and-magnifying-glass">
+        <InputWithImage
+          onClick={getAllForecasts}
+          onChange={(e) => setCityName(e.target.value)}
+          flexDirection="row-reverse"
+          width="28vw"
+        />
+        {/* <div className="list-page-input-and-magnifying-glass">
           <input type="text" onChange={(e) => setCityName(e.target.value)} />
           <img
             src="src/images/today-forecast/magnifying-glass.png"
@@ -92,7 +101,7 @@ const ListPageBody = () => {
             className="list-magnifying-glass"
             onClick={getAllForecasts}
           />
-        </div>
+        </div> */}
       </div>
       <div className="list-page-info-header">
         <span>Cidade</span>
@@ -133,7 +142,9 @@ const ListPageBody = () => {
             }
           }}
         >
-          {"< "}
+          <span className="page-changer">
+            <span className="arrow">{"<"}</span>{" "}
+          </span>
         </div>
         <span>
           Página {pageNumber + 1} de {totalPages}
@@ -145,10 +156,13 @@ const ListPageBody = () => {
             }
           }}
         >
-          {" >"}
+          <span className="page-changer">
+            {" "}
+            <span className="arrow">{">"}</span>
+          </span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 export default ListPageBody;

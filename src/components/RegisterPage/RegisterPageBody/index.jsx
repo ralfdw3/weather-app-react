@@ -1,5 +1,5 @@
 import InputWithTitleAbove from "../../InputWithTitleAbove";
-import TitleAndOptions from "../TitleAndOptions";
+import TitleAndOptions from "./TitleAndOptions";
 import Button from "../../Button";
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -115,7 +115,7 @@ const RegisterPage = () => {
   }, []);
 
   return (
-    <div className="register-page-container">
+    <section className="register-page-container">
       <h1>Cadastro Metereológico</h1>
       <section className="city-and-date-container">
         <div className="city-and-date-input">
@@ -124,6 +124,7 @@ const RegisterPage = () => {
             width="300px"
             onChange={(info) => setCity(info)}
             value={city}
+            fontSize="20px"
           />
         </div>
         <div className="city-and-date-input">
@@ -134,6 +135,7 @@ const RegisterPage = () => {
               type="date"
               onChange={(info) => setDate(info)}
               value={date}
+              fontSize="20px"
             />
           </div>
         </div>
@@ -162,22 +164,18 @@ const RegisterPage = () => {
         </div>
         <div className="register-info-inputs">
           <div className="maxtemperature-and-precipitation">
-            <div className="max-temperature-input">
-              <InputWithTitleAbove
-                title="Temperatura Máxima"
-                width="5vw"
-                onChange={(info) => setMaxTemperature(info)}
-                value={maxTemperature}
-              />
-            </div>
-            <div className="precipitation-input">
-              <InputWithTitleAbove
-                title="Precipitação"
-                width="5vw"
-                onChange={(info) => setPrecipitation(info)}
-                value={precipitation}
-              />
-            </div>
+            <InputWithTitleAbove
+              title="Temperatura Máxima"
+              width="5vw"
+              onChange={(info) => setMaxTemperature(info)}
+              value={maxTemperature}
+            />
+            <InputWithTitleAbove
+              title="Precipitação"
+              width="5vw"
+              onChange={(info) => setPrecipitation(info)}
+              value={precipitation}
+            />
           </div>
           <div className="humidity-input">
             <InputWithTitleAbove
@@ -188,22 +186,18 @@ const RegisterPage = () => {
             />
           </div>
           <div className="mintemperature-and-airspeed">
-            <div className="min-temperature-input">
-              <InputWithTitleAbove
-                title="Temperatura Mínima"
-                width="5vw"
-                onChange={(info) => setMinTemperature(info)}
-                value={minTemperature}
-              />
-            </div>
-            <div className="air-speed-input">
-              <InputWithTitleAbove
-                title="Velocidade do vento"
-                width="5vw"
-                onChange={(info) => setAirSpeed(info)}
-                value={airSpeed}
-              />
-            </div>
+            <InputWithTitleAbove
+              title="Temperatura Mínima"
+              width="5vw"
+              onChange={(info) => setMinTemperature(info)}
+              value={minTemperature}
+            />
+            <InputWithTitleAbove
+              title="Velocidade do vento"
+              width="5vw"
+              onChange={(info) => setAirSpeed(info)}
+              value={airSpeed}
+            />
           </div>
         </div>
       </section>
@@ -212,7 +206,7 @@ const RegisterPage = () => {
         <Button onClick={handleCancelButton}>Cancelar</Button>
         <Button onClick={handleSave}>Salvar</Button>
       </section>
-    </div>
+    </section>
   );
 };
 export default RegisterPage;

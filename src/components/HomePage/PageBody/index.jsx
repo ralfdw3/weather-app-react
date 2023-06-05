@@ -1,4 +1,4 @@
-import "./PageBody.css";
+import "./HomePageBody.css";
 import { GoLocation } from "react-icons/go";
 import { useContext, useState } from "react";
 import { format } from "date-fns";
@@ -6,15 +6,16 @@ import { ForecastContext } from "../../../common/contexts/Forecast";
 import { WeekForecastContext } from "../../../common/contexts/WeekForecast";
 import TodayForecastDetails from "./TodayForecastDetails";
 import WeekForecastsDetails from "./WeekForecastsDetails";
-import InputWithImage from "../../InputWithImage";
+import Search from "../../Search";
 
-const PageBody = () => {
+const HomePageBody = () => {
+  // consts
   const [cityName, setCityName] = useState("");
   const { setForecastsWeek } = useContext(WeekForecastContext);
   const { setForecastToday } = useContext(ForecastContext);
   const today = new Date(Date.now());
 
-  const forecastClickWrapper = () => {
+  const handleForecastClick = () => {
     setForecastsWeek([]);
     setForecastToday([]);
     getWeekForecasts();
@@ -36,11 +37,12 @@ const PageBody = () => {
     )
       .then((response) =>
         response.json().then((data) => {
+          console.log(data);
           setForecastToday(data);
         })
       )
       .catch((error) => {
-        console.log(error);
+        console.log("erro: " + error);
       });
   };
 
@@ -64,31 +66,30 @@ const PageBody = () => {
         })
       )
       .catch((error) => {
-        console.log(error);
+        console.log("erro: " + error);
       });
   };
 
   return (
     <>
-      <div className="header-container">
+      <section className="home-body-container">
         <h3>Hoje</h3>
-        <div className="search-city-input-and-image">
-          <span>Pesquise a cidade</span>
-          <div className="search-container">
-            <InputWithImage
-              onChange={(e) => setCityName(e.target.value)}
-              onClick={forecastClickWrapper}
-            />
-            <div className="circle">
-              <GoLocation className="location-icon" />
-            </div>
+        <div className="home-search">
+          <Search
+            onChange={(e) => setCityName(e.target.value)}
+            onClick={handleForecastClick}
+            children={"Pesquise a cidade"}
+            width={"28vw"}
+          />
+          <div className="circle">
+            <GoLocation className="location-icon" />
           </div>
         </div>
-      </div>
+      </section>
       <TodayForecastDetails />
       <WeekForecastsDetails />
     </>
   );
 };
 
-export default PageBody;
+export default HomePageBody;

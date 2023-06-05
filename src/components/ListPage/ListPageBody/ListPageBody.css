@@ -8,45 +8,12 @@
 .list-page-container h1 {
   font-size: 32px;
   width: fit-content;
-}
-
-.list-page-input-and-magnifying-glass {
-  display: flex;
-  flex-direction: row;
-  width: fit-content;
-  align-items: center;
-}
-
-.list-magnifying-glass {
-  margin: 6px 0 0 12px;
-}
-
-.list-magnifying-glass:hover {
-  cursor: pointer;
-}
-
-.list-page-search-city {
-  margin-top: 36px;
+  margin-bottom: 24px;
 }
 
 .list-page-search-city span {
   font-size: 22px;
   font-weight: bold;
-}
-
-.list-page-search-city input {
-  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
-  border: none;
-  border-radius: 10px;
-  padding: 10px;
-  color: white;
-  font-size: 16px;
-  outline: none;
-  height: 4vh;
-  min-height: 30px;
-  padding-left: 1vw;
-  margin-top: 8px;
-  width: 224px;
 }
 
 .list-page-info-header {
@@ -124,11 +91,20 @@
 
 .list-pagination {
   display: flex;
+  align-items: center;
   justify-content: center;
   margin-top: 4vh;
   font-size: 18px;
   font-weight: bold;
   white-space: pre;
+}
+
+.arrow {
+  transition: color 0.3s ease;
+}
+
+.arrow:hover {
+  color: #555;
 }
 
 .list-pagination:hover div {

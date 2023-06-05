@@ -17,9 +17,10 @@
 }
 
 .forecast-text {
-  width: 250px;
+  width: 12vw;
   opacity: 0.6;
   margin: 0 0 0 1vw;
+  min-width: 120px;
 }
 
 .min-temperature {

@@ -1,12 +1,12 @@
 import "./InputWithImage.css";
 
-const InputWithImage = ({ onClick, onChange, flexDirection }) => {
+const InputWithImage = ({ onClick, onChange, flexDirection, width }) => {
   return (
     <div
       className="input-with-image-container"
       style={{
-        display: "flex",
         flexDirection: flexDirection,
+        width: width,
       }}
     >
       <img

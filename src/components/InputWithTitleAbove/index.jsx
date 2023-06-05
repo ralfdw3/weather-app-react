@@ -7,6 +7,7 @@ const InputWithTitleAbove = ({
   onChange,
   value,
   type = "text",
+  fontSize = "16px",
 }) => {
   const handleInputChange = (event) => {
     onChange(event.target.value);
@@ -14,16 +15,14 @@ const InputWithTitleAbove = ({
 
   return (
     <div className="input-title-container">
-      <span>{title}</span>
-      <div>
-        <input
-          className="input-title-above"
-          style={{ width: width }}
-          type={type}
-          onChange={handleInputChange}
-          value={value}
-        />
-      </div>
+      <span style={{ fontSize: fontSize }}>{title}</span>
+      <input
+        className="input-title-above"
+        style={{ width: width }}
+        type={type}
+        onChange={handleInputChange}
+        value={value}
+      />
     </div>
   );
 };

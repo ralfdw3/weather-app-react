@@ -11,6 +11,7 @@ export const ForecastProvider = ({ children }) => {
     precipitation: 0,
     humidity: 0,
     airSpeed: 0,
+    weatherStatus: "Sol",
   });
 
   return (
