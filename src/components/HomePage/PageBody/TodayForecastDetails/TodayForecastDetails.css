@@ -1,0 +1,80 @@
+.forecast-today-container {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  height: 20vh;
+  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  border-radius: 15px;
+}
+
+.forecast-today-temperatures {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.forecast-today-temperatures img {
+  width: 20%;
+  min-width: 100px;
+  margin-right: 3vw;
+}
+
+.todays-max-temperature {
+  font-size: 48px;
+}
+
+.todays-min-temperature {
+  font-size: 24px;
+  top: 2vh;
+  margin-left: 1%;
+}
+
+.max-degree {
+  font-size: 24px;
+  bottom: 1vh;
+}
+
+.min-degree {
+  font-size: 18px;
+  top: 1vh;
+}
+
+.separation-between-temperature {
+  font-size: 32px;
+  top: 1vh;
+}
+
+.forecast-climate-datas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20%;
+  width: 50%;
+  height: 100%;
+}
+
+@media (max-width: 1000px) {
+  .forecast-today-container {
+    flex-direction: column;
+    height: 35vh;
+  }
+
+  .forecast-today-temperatures {
+    width: 100%;
+  }
+
+  .forecast-today-temperatures img {
+    width: 10%;
+    min-width: 100px;
+  }
+
+  .forecast-climate-datas {
+    width: 100%;
+    justify-content: center;
+    gap: 10%;
+  }
+}

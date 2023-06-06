@@ -1,0 +1,6 @@
+.list-container {
+  padding: 2vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

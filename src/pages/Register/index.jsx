@@ -1,26 +1,24 @@
-import './Register.css'
-import PageHeader from '../../components/PageHeader';
-import PageFooter from '../../components/PageFooter';
-import RegisterPage from '../../components/RegisterPage';
+import "./Register.css";
+import PageHeader from "../../components/PageHeader";
+import PageFooter from "../../components/PageFooter";
+import RegisterPage from "../../components/RegisterPage/RegisterPageBody";
 
 const Register = () => {
-
   return (
-    <div className='register-container'>
-
-      <header>
+    <div className="register-container">
+      <div className="register-page-header">
         <PageHeader />
-      </header>
+      </div>
 
-      <body>
+      <div className="register-page-body">
         <RegisterPage />
-      </body>
+      </div>
 
-      <footer>
+      <div className="register-page-footer">
         <PageFooter />
-      </footer>
+      </div>
     </div>
   );
-}
+};
 
-export default Register
+export default Register;

@@ -1,0 +1,30 @@
+.input-with-image-container {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  padding: 0 2%;
+  border-radius: 10px;
+  min-width: 200px;
+}
+
+.input-with-image-container input {
+  background: transparent;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  height: 4vh;
+  min-height: 30px;
+  min-width: 150px;
+  padding: 0 1vw;
+  margin: 0 0.5vw;
+}
+
+.magnifying-glass {
+  width: 24px;
+  height: 22px;
+}
+
+.magnifying-glass:hover {
+  cursor: pointer;
+}

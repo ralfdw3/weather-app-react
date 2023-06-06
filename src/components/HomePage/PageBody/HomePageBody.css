@@ -1,0 +1,39 @@
+.home-body-container {
+  display: flex;
+  width: 90vw;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 2% auto;
+}
+
+.home-body-container h3 {
+  font-size: 24px;
+  font-weight: bold;
+  width: auto;
+}
+
+.home-body-container span {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.home-search {
+  display: flex;
+  align-items: flex-end;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-left: 8px;
+  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+}
+
+.location-icon {
+  width: 18px;
+  height: auto;
+}

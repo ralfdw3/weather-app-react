@@ -1,0 +1,41 @@
+.list-page-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: linear-gradient(
+    180deg,
+    rgba(149, 125, 205, 0.29) 0%,
+    #523d7f 100%
+  );
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  height: 20vh;
+  width: 90vw;
+  min-height: 30px;
+  padding-left: 1vw;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 8px 0;
+  transition: color 0.3s ease;
+}
+
+.list-page-info:hover {
+  background-color: #555;
+}
+
+.list-page-info-city {
+  width: 41vw;
+}
+
+.list-page-info-date {
+  width: 40vw;
+}
+
+.list-page-info img {
+  width: 26px;
+  margin: 0 1em 0 0.4em;
+  cursor: pointer;
+}

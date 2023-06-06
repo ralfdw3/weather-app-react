@@ -1,0 +1,37 @@
+.list-page-container {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  margin: 6vh auto 0 auto;
+}
+
+.list-page-container h1 {
+  font-size: 32px;
+  width: fit-content;
+  margin-bottom: 36px;
+}
+
+.list-page-search-city {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-page-search-city span {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.list-page-info-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90vw;
+  padding: 0 2.5vw 0 2.5vw;
+  margin: 2vh 0 1vh 0;
+}
+
+.list-page-info-header span {
+  font-size: 22px;
+  font-weight: bold;
+}

@@ -1,0 +1,21 @@
+.list-all-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  width: 92vw;
+  max-height: 35vh;
+}
+
+.list-all-info::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list-all-info::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.list-all-info::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}

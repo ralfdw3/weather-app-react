@@ -1,39 +1,95 @@
-import './PageBody.css'
+import "./HomePageBody.css";
+import { GoLocation } from "react-icons/go";
+import { useContext, useState } from "react";
+import { format } from "date-fns";
+import { ForecastContext } from "../../../common/contexts/Forecast";
+import { WeekForecastContext } from "../../../common/contexts/WeekForecast";
+import TodayForecastDetails from "./TodayForecastDetails";
+import WeekForecastsDetails from "./WeekForecastsDetails";
+import Search from "../../Search";
 
-const PageBody = () => {
+const HomePageBody = () => {
+  // consts
+  const [cityName, setCityName] = useState("");
+  const { setForecastsWeek } = useContext(WeekForecastContext);
+  const { setForecastToday } = useContext(ForecastContext);
+  const today = new Date(Date.now());
 
-    return (
-        <div className='body-container'>
-            <span className='today'>Hoje</span>
-            <div className='weather-today'>
-                <img src="src/images/cloudy-weather.png" alt="imagem do tempo" className='cloud-image' />
-                <div className='today-temperature'>
-                    <span className='todays-max-temperature'>23</span>
-                    <span className='max-degree'>°</span>
-                    <span className='separation-between-temperature'>/</span>
-                    <span className='todays-min-temperature'>17</span>
-                    <span className='min-degree'>°</span>
-                </div>
-                <div className='small-icons'>
-                    <div className='umbrella-container'>
-                        <img src="src/images/umbrella.png" alt="precipitação" className='umbrella-image' />
-                        <span className='percentage'>30%</span>
-                        <span className='climate-data'>Precipitação</span>
-                    </div>
-                    <div className='drop-container'>
-                        <img src="src/images/drop.png" alt="umidade do ar" className='drop-image' />
-                        <span className='percentage'>20%</span>
-                        <span className='climate-data'>Umidade</span>
-                    </div>
-                    <div className='air-container'>
-                        <img src="src/images/air.png" alt="velocidade do vento" className='air-image' />
-                        <span className='percentage'>9km/h</span>
-                        <span className='climate-data'>Velocidade do vento</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+  const handleForecastClick = () => {
+    setForecastsWeek([]);
+    setForecastToday([]);
+    getWeekForecasts();
+    getTodayForecast();
+  };
+
+  const getTodayForecast = () => {
+    fetch(
+      "http://localhost:8080/v1/forecast?city=" +
+        `${cityName}` +
+        "&date=" +
+        `${format(today, "yyyy-MM-dd")}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     )
-}
+      .then((response) =>
+        response.json().then((data) => {
+          console.log(data);
+          setForecastToday(data);
+        })
+      )
+      .catch((error) => {
+        console.log("erro: " + error);
+      });
+  };
 
-export default PageBody;
+  const getWeekForecasts = () => {
+    fetch(
+      "http://localhost:8080/v1/forecast/week?cityName=" +
+        `${cityName}` +
+        "&page=0&size=6&sort=date",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) =>
+        response.json().then((data) => {
+          if (data.content.length !== 0) {
+            setForecastsWeek(data.content);
+          }
+        })
+      )
+      .catch((error) => {
+        console.log("erro: " + error);
+      });
+  };
+
+  return (
+    <>
+      <section className="home-body-container">
+        <h3>Hoje</h3>
+        <div className="home-search">
+          <Search
+            onChange={(e) => setCityName(e.target.value)}
+            onClick={handleForecastClick}
+            children={"Pesquise a cidade"}
+            width={"28vw"}
+          />
+          <div className="circle">
+            <GoLocation className="location-icon" />
+          </div>
+        </div>
+      </section>
+      <TodayForecastDetails />
+      <WeekForecastsDetails />
+    </>
+  );
+};
+
+export default HomePageBody;

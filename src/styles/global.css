@@ -1,13 +1,16 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    color: #FFF;
-    position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  color: #fff;
+  position: relative;
 }
 
 body {
-    overflow: hidden;
+  background: linear-gradient(180deg, #352163 0%, #331972 57.81%, #33143c 100%);
+  overflow: hidden;
+  min-width: 400px;
+  min-height: 700px;
 }
