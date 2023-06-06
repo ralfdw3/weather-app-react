@@ -124,7 +124,8 @@ const RegisterPage = () => {
             width="300px"
             onChange={(info) => setCity(info)}
             value={city}
-            fontSize="20px"
+            fontSize="22px"
+            fontWeight="bold"
           />
         </div>
         <div className="city-and-date-input">
@@ -136,6 +137,7 @@ const RegisterPage = () => {
               onChange={(info) => setDate(info)}
               value={date}
               fontSize="20px"
+              fontWeight="bold"
             />
           </div>
         </div>

@@ -8,6 +8,7 @@ const InputWithTitleAbove = ({
   value,
   type = "text",
   fontSize = "16px",
+  fontWeight = "normal",
 }) => {
   const handleInputChange = (event) => {
     onChange(event.target.value);
@@ -15,7 +16,9 @@ const InputWithTitleAbove = ({
 
   return (
     <div className="input-title-container">
-      <span style={{ fontSize: fontSize }}>{title}</span>
+      <span style={{ fontSize: fontSize, fontWeight: fontWeight }}>
+        {title}
+      </span>
       <input
         className="input-title-above"
         style={{ width: width }}
