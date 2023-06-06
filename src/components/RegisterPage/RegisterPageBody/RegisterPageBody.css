@@ -87,9 +87,6 @@
 @media (max-width: 900px) {
   .city-and-date-container {
     margin-top: 20px;
-  }
-
-  .city-and-date-container {
     flex-direction: column;
   }
 
@@ -102,6 +99,7 @@
     padding: 20px;
     flex-direction: column;
     height: 35vh;
+    border: 1px red solid;
   }
 
   .register-info-selectors {
@@ -113,6 +111,7 @@
 
   .forecast-selector,
   .shift-selector {
+    margin-top: 2vh;
     padding: 0 1vw;
   }
 
@@ -175,15 +174,21 @@
     flex-wrap: wrap;
     height: 25vh;
     align-items: end;
+    text-align: center;
+    font-size: 2px;
   }
 
   .humidity-input {
     height: 25vh;
+    text-align: center;
+    justify-content: center;
   }
 
   .mintemperature-and-airspeed {
     flex-wrap: wrap;
     height: 25vh;
+    text-align: center;
+    justify-content: center;
   }
 
   .register-page-buttons {

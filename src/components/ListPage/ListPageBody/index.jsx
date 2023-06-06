@@ -93,15 +93,6 @@ const ListPageBody = () => {
           flexDirection="row-reverse"
           width="28vw"
         />
-        {/* <div className="list-page-input-and-magnifying-glass">
-          <input type="text" onChange={(e) => setCityName(e.target.value)} />
-          <img
-            src="src/images/today-forecast/magnifying-glass.png"
-            alt="lupa"
-            className="list-magnifying-glass"
-            onClick={getAllForecasts}
-          />
-        </div> */}
       </div>
       <div className="list-page-info-header">
         <span>Cidade</span>
