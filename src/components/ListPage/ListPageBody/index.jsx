@@ -6,7 +6,7 @@ import Pagination from "../Pagination";
 
 const ListPageBody = () => {
   // consts
-  const [cityName, setCityName] = useState("Teutonia");
+  const [cityName, setCityName] = useState("Lajeado");
   const [allForecast, setAllForecast] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
   const [totalPages, setTotalPages] = useState("");
