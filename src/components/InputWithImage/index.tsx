@@ -1,6 +1,20 @@
+import { ChangeEventHandler } from "react";
+import { FlexDirection } from "../../common/enums/FlexDirection";
 import "./InputWithImage.css";
 
-const InputWithImage = ({ onClick, onChange, flexDirection, width }) => {
+interface InputWithImageProps {
+  onClick: () => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  flexDirection: FlexDirection;
+  width: string;
+}
+
+const InputWithImage = ({
+  onClick,
+  onChange,
+  flexDirection,
+  width,
+}: InputWithImageProps) => {
   return (
     <div
       className="input-with-image-container"

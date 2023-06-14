@@ -1,6 +1,16 @@
 import "./Pagination.css";
 
-const Pagination = ({ pageNumber, totalPages, handlePageNumber }) => {
+interface PaginationProps {
+  pageNumber: number;
+  totalPages: number;
+  handlePageNumber: (value: number) => void;
+}
+
+const Pagination = ({
+  pageNumber,
+  totalPages,
+  handlePageNumber,
+}: PaginationProps) => {
   return (
     <section className="list-pagination">
       <div

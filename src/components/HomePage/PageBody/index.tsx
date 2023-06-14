@@ -1,12 +1,14 @@
-import "./HomePageBody.css";
 import { GoLocation } from "react-icons/go";
 import { useContext, useState } from "react";
 import { format } from "date-fns";
 import { ForecastContext } from "../../../common/contexts/Forecast";
 import { WeekForecastContext } from "../../../common/contexts/WeekForecast";
+import { ChangeEvent } from "react";
 import TodayForecastDetails from "./TodayForecastDetails";
 import WeekForecastsDetails from "./WeekForecastsDetails";
 import Search from "../../Search";
+import "./HomePageBody.css";
+import { FlexDirection } from "../../../common/enums/FlexDirection";
 
 const HomePageBody = () => {
   // consts
@@ -76,10 +78,13 @@ const HomePageBody = () => {
         <h3>Hoje</h3>
         <div className="home-search">
           <Search
-            onChange={(e) => setCityName(e.target.value)}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              setCityName(event.target.value)
+            }
             onClick={handleForecastClick}
             children={"Pesquise a cidade"}
             width={"28vw"}
+            flexDirection={FlexDirection.ROW}
           />
           <div className="circle">
             <GoLocation className="location-icon" />

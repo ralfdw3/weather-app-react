@@ -1,7 +1,7 @@
 import InputWithTitleAbove from "../../InputWithTitleAbove";
 import TitleAndOptions from "./TitleAndOptions";
 import Button from "../../Button";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./RegisterPageBody.css";
 
@@ -34,7 +34,7 @@ const RegisterPage = () => {
   const [airSpeed, setAirSpeed] = useState("");
 
   // handlers
-  const handleShiftChange = (selectedOption) => {
+  const handleShiftChange = (selectedOption: string) => {
     if (selectedOption === "Manhã") {
       setShift(SHIFT_OPTIONS.DAY);
     } else {
@@ -42,7 +42,7 @@ const RegisterPage = () => {
     }
   };
 
-  const handleWeatherChange = (selectedOption) => {
+  const handleWeatherChange = (selectedOption: string) => {
     if (selectedOption === "Limpo") {
       setWeather(WEATHER_OPTIONS.CLEAR);
     } else {

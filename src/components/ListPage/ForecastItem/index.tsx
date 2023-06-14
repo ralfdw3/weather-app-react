@@ -1,11 +1,17 @@
-import "./ForecastItem.css";
 import DateFormat from "../../DateFormat";
 import { useNavigate } from "react-router-dom";
+import { IForecast } from "../../../common/interfaces/IForecast";
+import "./ForecastItem.css";
 
-const ForecastItem = ({ forecast, getAllForecasts }) => {
+interface ForecastItemProps {
+  forecast: IForecast;
+  getAllForecasts: () => void;
+}
+
+const ForecastItem = ({ forecast, getAllForecasts }: ForecastItemProps) => {
   const navigate = useNavigate();
 
-  const deleteForecast = (id) => {
+  const deleteForecast = (id: number) => {
     return fetch("http://localhost:8080/v1/forecast?id=" + `${id}`, {
       method: "DELETE",
       headers: {
@@ -24,13 +30,13 @@ const ForecastItem = ({ forecast, getAllForecasts }) => {
       });
   };
 
-  const handlePageDelete = (forecastId) => {
+  const handlePageDelete = (forecastId: number) => {
     deleteForecast(forecastId).then(() => {
       getAllForecasts();
     });
   };
 
-  const handlePageEdit = (forecast) => {
+  const handlePageEdit = (forecast: IForecast) => {
     navigate("/cadastrar", { state: { forecast } });
   };
 

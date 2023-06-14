@@ -1,7 +1,7 @@
 import "./List.css";
 import React, { useState } from "react";
 import PageHeader from "../../components/PageHeader";
-import ListPageBody from "../../components/ListPage/ListPageBody";
+import ListPageBody from "../../components/ListPage";
 import PageFooter from "../../components/PageFooter";
 
 const List = () => {

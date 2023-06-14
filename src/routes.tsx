@@ -1,12 +1,11 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import List from "./pages/List";
-import "./styles/global.css";
 import { ForecastProvider } from "./common/contexts/Forecast";
 import { WeekForecastProvider } from "./common/contexts/WeekForecast";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./styles/global.css";
 
 export default function AppRoutes() {
   return (
@@ -24,5 +23,5 @@ export default function AppRoutes() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<AppRoutes />);
