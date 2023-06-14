@@ -1,18 +1,19 @@
+import { useState, useEffect, ChangeEvent } from "react";
+import InputWithImage from "../../components/InputWithImage";
+import ForecastList from "./ForecastList";
+import Pagination from "./Pagination";
+import { FlexDirection } from "../../common/enums/FlexDirection";
 import "./ListPageBody.css";
-import { useState, useEffect } from "react";
-import InputWithImage from "../../InputWithImage";
-import ForecastList from "../ForecastList";
-import Pagination from "../Pagination";
 
 const ListPageBody = () => {
   // consts
-  const [cityName, setCityName] = useState("Teutonia");
+  const [cityName, setCityName] = useState("Lajeado");
   const [allForecast, setAllForecast] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
-  const [totalPages, setTotalPages] = useState("");
+  const [totalPages, setTotalPages] = useState(0);
 
   // handlers
-  const handlePageNumber = (newPageNumber) => {
+  const handlePageNumber = (newPageNumber: number) => {
     setPageNumber(newPageNumber);
   };
 
@@ -60,8 +61,10 @@ const ListPageBody = () => {
         <span>Cidade</span>
         <InputWithImage
           onClick={getAllForecasts}
-          onChange={(e) => setCityName(e.target.value)}
-          flexDirection="row-reverse"
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setCityName(event.target.value)
+          }
+          flexDirection={FlexDirection.ROW_REVERSE}
           width="28vw"
         />
       </div>
@@ -71,7 +74,6 @@ const ListPageBody = () => {
         <span>Ação</span>
       </div>
       <ForecastList
-        cityName={cityName}
         allForecast={allForecast}
         getAllForecasts={getAllForecasts}
       />

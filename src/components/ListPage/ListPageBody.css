@@ -22,6 +22,10 @@
   margin-bottom: 8px;
 }
 
+.list-page-search-city input {
+  width: 28vw;
+}
+
 .list-page-info-header {
   display: flex;
   flex-direction: row;

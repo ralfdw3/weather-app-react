@@ -1,5 +1,15 @@
+import { ChangeEvent } from "react";
 import "./InputWithTitleAbove.css";
-import React from "react";
+
+interface InputWithTitleAboveProps {
+  title: string;
+  width: string;
+  onChange: (value: string) => void;
+  value: string;
+  type?: string;
+  fontSize?: string;
+  fontWeight?: string;
+}
 
 const InputWithTitleAbove = ({
   title,
@@ -9,8 +19,8 @@ const InputWithTitleAbove = ({
   type = "text",
   fontSize = "16px",
   fontWeight = "normal",
-}) => {
-  const handleInputChange = (event) => {
+}: InputWithTitleAboveProps) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
   };
 
